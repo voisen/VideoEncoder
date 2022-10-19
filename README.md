@@ -45,3 +45,6 @@ encoder->finishEncoder();
 ````
 encoder->release();
 ````
+
+
+### 仅供个人学习交流使用， 商用 请联系授权 ！
