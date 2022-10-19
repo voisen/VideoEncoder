@@ -31,7 +31,11 @@ encoder->encodeVideo(buffer, bufferSize, frameWidth, frameHeight);
 - 编码一组PCM音频数据
 
 ````
+// 默认主音频
 encoder->encodeAudio(buffer, bufferSize, 44100, 1);
+//可添加混流音频流，代码如下：
+encoder->encodeAudio(buffer, bufferSize, 44100, 1, ezcode::AudioInputTypeMix);
+
 ````
 
 - 结束编码， 释放所有编码器
