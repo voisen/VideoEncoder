@@ -8,49 +8,40 @@
 - 创建编码器
 
 ````
-		auto encoder = ezcode::VideoEncoder::create(1920, 1080, "D:/test.avi");
-
+auto encoder = ezcode::VideoEncoder::create(1920, 1080, "D:/test.avi");
 ````
 
 - 检查是否存在错误
 ````
-		bool error = encoder->checkHasError();
-        if(error){
-            //编码器初始化错误
-        }else{
-            //编码器初始化正常
-        }
-
-
+bool error = encoder->checkHasError();
+if(error){
+    //编码器初始化错误
+}else{
+    //编码器初始化正常
+}
 ````
 
 
 - 编码一帧视频
 
 ````
-
-		encoder->encodeVideo(buffer, bufferSize, frameWidth, frameHeight);
-
-        
+encoder->encodeVideo(buffer, bufferSize, frameWidth, frameHeight);   
 ````
 
 - 编码一组PCM音频数据
 
 ````
-		encoder->encodeAudio(buffer, bufferSize, 44100, 1);
-
+encoder->encodeAudio(buffer, bufferSize, 44100, 1);
 ````
 
 - 结束编码， 释放所有编码器
 
 ````
-		encoder->finishEncoder();
-
+encoder->finishEncoder();
 ````
 
 - 释放所有资源
 
 ````
-		encoder->release();
-
+encoder->release();
 ````
