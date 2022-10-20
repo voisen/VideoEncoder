@@ -7,13 +7,13 @@ namespace ezcode {
 	enum AudioInputType
 	{
 		/// <summary>
-		/// Ö÷ÒôÆµ
+		/// ä¸»éŸ³é¢‘
 		/// </summary>
 		AudioInputTypeMain,
 
 		/// <summary>
-		/// µÚ¶şÒôÆµ
-		/// Èô´æÔÚÖ÷ÒôÆµ£¬Ôò»ìÒô´¦Àí
+		/// ç¬¬äºŒéŸ³é¢‘
+		/// è‹¥å­˜åœ¨ä¸»éŸ³é¢‘ï¼Œåˆ™æ··éŸ³å¤„ç†
 		/// </summary>
 		AudioInputTypeMix,
 	};
@@ -23,48 +23,48 @@ namespace ezcode {
 	{
 	public:
 		/// <summary>
-		/// ´´½¨±àÂëÆ÷ (µÚ1²½)
+		/// åˆ›å»ºç¼–ç å™¨ (ç¬¬1æ­¥)
 		/// </summary>
-		/// <param name="video_width">Êä³öÊÓÆµ¿í</param>
-		/// <param name="video_height">Êä³öÊÓÆµ¸ß</param>
-		/// <param name="file_path">ÊÓÆµÊä³öÂ·¾¶</param>
+		/// <param name="video_width">è¾“å‡ºè§†é¢‘å®½</param>
+		/// <param name="video_height">è¾“å‡ºè§†é¢‘é«˜</param>
+		/// <param name="file_path">è§†é¢‘è¾“å‡ºè·¯å¾„</param>
 		/// <returns></returns>
 		static VideoEncoder* create(int video_width, int video_height, const char *file_path);
 
 
 
 		/// <summary>
-		/// ¼ì²éÊÇ·ñ´æÔÚ´íÎó (µÚ2²½)
+		/// æ£€æŸ¥æ˜¯å¦å­˜åœ¨é”™è¯¯ (ç¬¬2æ­¥)
 		/// </summary>
-		/// <returns>true ÓĞ´íÎó£¬ false ÎŞ´íÎó</returns>
+		/// <returns>true æœ‰é”™è¯¯ï¼Œ false æ— é”™è¯¯</returns>
 		virtual bool checkHasError() = 0;
 
 
 		/// <summary>
-		/// ±àÂëÒ»Ö¡ÊÓÆµ (µÚ3²½)
+		/// ç¼–ç ä¸€å¸§è§†é¢‘ (ç¬¬3æ­¥)
 		/// </summary>
-		/// <param name="data">Êı¾İ</param>
-		/// <param name="dataLen">Êı¾İ³¤¶È</param>
-		/// <param name="width">Ö¡ÊÓÆµ¿í</param>
-		/// <param name="height">Ö¡ÊÓÆµ¸ß</param>
+		/// <param name="data">æ•°æ® åªæ”¯æŒ YUV420 æ•°æ®</param>
+		/// <param name="dataLen">æ•°æ®é•¿åº¦</param>
+		/// <param name="width">å¸§è§†é¢‘å®½</param>
+		/// <param name="height">å¸§è§†é¢‘é«˜</param>
 		virtual void encodeVideo(void* data, int dataLen, int width, int height) = 0;
 		/// <summary>
-		/// ±àÂëÒ»×éPCMÒôÆµÊı¾İ (µÚ3²½)
+		/// ç¼–ç ä¸€ç»„PCMéŸ³é¢‘æ•°æ® (ç¬¬3æ­¥)
 		/// </summary>
-		/// <param name="data">Êı¾İÌå, Ö»Ö§³ÖPCMÊı¾İ AV_SAMPLE_FMT_S16 ¸ñÊ½</param>
-		/// <param name="dataLen">Êı¾İ³¤¶È</param>
-		/// <param name="audio_rate">ÒôÆµ²ÉÑùÂÊ</param>
-		/// <param name="audio_channels">ÉùµÀÊı</param>
-		/// <param name="type">ÒôÆµÀàĞÍ</param>
+		/// <param name="data">æ•°æ®ä½“, åªæ”¯æŒPCMæ•°æ® AV_SAMPLE_FMT_S16 æ ¼å¼</param>
+		/// <param name="dataLen">æ•°æ®é•¿åº¦</param>
+		/// <param name="audio_rate">éŸ³é¢‘é‡‡æ ·ç‡</param>
+		/// <param name="audio_channels">å£°é“æ•°</param>
+		/// <param name="type">éŸ³é¢‘ç±»å‹</param>
 		virtual void encodeAudio(void* data, int dataLen, int audio_rate, int audio_channels, AudioInputType type = AudioInputTypeMain) = 0;
 
 		/// <summary>
-		/// ½áÊø±àÂë£¬ ÊÍ·ÅËùÓĞ±àÂëÆ÷ (µÚ4²½)
+		/// ç»“æŸç¼–ç ï¼Œ é‡Šæ”¾æ‰€æœ‰ç¼–ç å™¨ (ç¬¬4æ­¥)
 		/// </summary>
 		virtual void finishEncoder() = 0;
 
 		/// <summary>
-		/// ÊÍ·ÅËùÓĞ×ÊÔ´ (µÚ5²½)
+		/// é‡Šæ”¾æ‰€æœ‰èµ„æº (ç¬¬5æ­¥)
 		/// </summary>
 		virtual void release() = 0;
 	};
